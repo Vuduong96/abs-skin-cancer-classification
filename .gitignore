@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Data (downloaded separately, see data/README.md) -- includes metadata
+# CSVs, not just images: keep this repo code-only.
+data/pad20/
+data/ham10000/
+!data/README.md
+
+# Run outputs / model checkpoints
+outputs/*
+!outputs/.gitkeep
+*.pth
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
