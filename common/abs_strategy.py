@@ -1,26 +1,17 @@
-"""ABS: Adaptive Balanced Sampling.
+# Adaptive Balanced Sampling (ABS)
 
-Phase 1 -- class-balanced candidate pool: rank the unlabeled pool by
-margin-of-confidence uncertainty, then take the top-k *per predicted
-class* (k boosted for minority-predicted classes via use_minority_bonus)
-rather than a single global top-k, so acquisition can't collapse onto
-majority classes.
+**Adaptive Balanced Sampling (ABS) is a two-phase active learning framework designed for class-imbalanced medical image classification.**
 
-Phase 2 -- uncertainty + diversity greedy selection: from that candidate
-pool, greedily build the query batch by trading off uncertainty against
-feature-space diversity (farthest-point style), with the uncertainty/
-diversity trade-off weight decaying across the batch (adaptive_weight)
-so early picks favor uncertainty and later picks favor spreading out in
-feature space.
+### Phase 1 — Balanced Candidate Allocation
+The unlabeled pool is partitioned according to the model's predicted classes. A rarity-scaled quota is then assigned to each class, ensuring that under-represented categories receive sufficient representation within the candidate pool.
 
-This is query_ablation() from PAD20_ABLATION_ABS_PATIENT_SPLIT_AUCRECHECK.py
-with every branch specific to OTHER uncertainty types (BADGE residual/
-gradient, entropy, least-confidence, highest-margin, random) removed --
-those were only reachable through ablation configs that aren't part of
-this release; "full_abs" always sets uncertainty_type="margin", so this
-is behaviorally identical to the original for the one cfg this release
-uses. See git history / PAD20_ABLATION_ABS_PATIENT_SPLIT_AUCRECHECK.py in
-the source project if you need those other variants.
+### Phase 2 — Informative Sample Selection
+Samples are selected from the balanced candidate pool by jointly considering predictive uncertainty and feature-space diversity, reducing redundancy while retaining informative examples.
+
+By combining class-balanced allocation with uncertainty- and diversity-based selection, 
+  ABS improves minority-class performance while maintaining strong performance on majority classes. 
+  The framework is evaluated on three dermatological benchmarks (HAM10000, PAD-UFES-20, and ISIC-2020) 
+using patient- and lesion-level group-aware splits to better assess generalization to previously unseen patients and lesions.
 """
 from collections import Counter
 
