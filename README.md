@@ -51,6 +51,7 @@ By combining class-balanced allocation with uncertainty- and diversity-based sel
 ├── common/
 ├── pad20/
 ├── ham10000/
+├── isic2020/
 ├── data/
 └── outputs/
 ```
@@ -70,6 +71,12 @@ By combining class-balanced allocation with uncertainty- and diversity-based sel
 - 10,015 dermoscopic images
 - 7 diagnostic categories
 - Lesion-level grouped split
+
+### ISIC-2020
+
+- 33,126 dermoscopic images
+- Binary task (malignant vs. benign)
+- Patient-level grouped split
 
 Please see `data/README.md` for dataset preparation instructions.
 
