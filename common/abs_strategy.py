@@ -1,5 +1,5 @@
 # Adaptive Balanced Sampling (ABS)
-
+"""
 **Adaptive Balanced Sampling (ABS) is a two-phase active learning framework designed for class-imbalanced medical image classification.**
 
 ### Phase 1 — Balanced Candidate Allocation
