@@ -107,7 +107,7 @@ python ham10000/train_full_abs_binary.py
 
 | Dataset | Task | Accuracy | Macro-F1 | Balanced Accuracy |
 |----------|----------|----------|----------|----------|
-| PAD-UFES-20 | Multiclass | 0.75 | 0.76 | 0.66 |
+| PAD-UFES-20 | Multiclass | 0.75 | 0.68 | 0.66 |
 | PAD-UFES-20 | Binary | 0.845 | 0.845 | 0.844 |
 | HAM10000 | Multiclass | 0.858 | 0.772 | 0.729 |
 | HAM10000 | Binary | 0.90 | 0.80 | 0.767 |
